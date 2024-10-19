@@ -3,41 +3,38 @@ import json
 import threading
 import time
 
-# URL da API de criação de usuário
 server_url = 'XXXXXXXXX'
 
-# Dados para criar o usuário
 user_data = {
     "name": "user1",
     "password": "123456"
 }
 
-# Função para criar o usuário
 def criar_usuario():
     url = f"{server_url}/user/"
     data = {
         'name': "tiago",
-        'password': "40294029"
+        'password': "XXXXXXX"
     }
 
     response = requests.post(url, json=data)
     
     if response.status_code == 201:
         print("Usuário criado com sucesso!")
-        return response.json()  # O ID do usuário será retornado
+        return response.json()
     else:
         print(f"Erro ao criar usuário: {response.status_code}")
         print(response.text)
 
-# Criar o usuário e capturar o ID
+
 usuario = criar_usuario()
 print(f"ID do usuário: {usuario['id']}")
 
-# Função para autenticar e obter o token
+
 def autenticar_usuario():
-    # URL da API de autenticação
+    
     url_auth = f'{server_url}/auth/'
-    # Dados de autenticação (use o mesmo nome e senha que usou na criação do usuário)
+    
     auth_data = {
     "password": "40294029"
     }
@@ -45,16 +42,16 @@ def autenticar_usuario():
     
     if response.status_code == 200:
         print("Autenticado com sucesso!")
-        return response.json()  # Retorna o token
+        return response.json() 
     else:
         print(f"Erro ao autenticar: {response.status_code}")
         print(response.text)
 
-# Autenticar o usuário e capturar o token
+
 token = autenticar_usuario()['token']
 print(f"Token de autenticação: {token}")
 
-# Função para enviar uma mensagem
+
 def post_message(sender: str, text: str, token: str) -> int:
     url = f"{server_url}/message"
     data = {
@@ -72,7 +69,7 @@ def post_message(sender: str, text: str, token: str) -> int:
     else:
         print('Mensagem enviada com sucesso!')
 
-# Classe para receber mensagens
+
 class receiver(threading.Thread):
     def set_sender(self, sender: str, token: str):
         self.sender = sender
@@ -98,14 +95,14 @@ class receiver(threading.Thread):
 
     def run(self, *args, **kwargs):
         self.last = 0
-        # Loop para receber mensagens
+ 
         while True:
             self.get_messages()
             time.sleep(5)
 
-# Função para deslogar o usuário
+
 def deslogar_usuario(token):
-    url_logout = f"{server_url}/auth/1"  # Certifique-se de passar o ID correto do usuário
+    url_logout = f"{server_url}/auth/1" 
     headers = {
         'Authorization': token
     }
@@ -117,22 +114,21 @@ def deslogar_usuario(token):
         print(f"Erro ao deslogar: {response.status_code}")
         print(response.text)
 
-# Autenticação do usuário e obtenção do token
 token = autenticar_usuario()
 
-# Garantir que o token foi obtido com sucesso
+
 if token:
-    # Nome do remetente
+    
     sender = input('>> Digite seu nome: ')
 
-    # Inicializa o receptor de mensagens
+    
     rcv = receiver()
     rcv.set_sender(sender, token)
     rcv.start()
 
     time.sleep(1)
 
-    # Loop para envio de mensagens
+   
     while True:
         text = input('$> ')
         if text.lower() == 'logout':
