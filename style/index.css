@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --fonte-primaria: 'Manrope', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+}
+.container-img {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #ABD1FF6E;
+    
+}
+
+.container-login{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.label-login{
+    font-family: var(--fonte-primaria);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    
+}
+
+.inputs{
+    display: flex;
+    align-items: center;
+    flex-direction: column;   
+    gap: 10px;
+    
+    
+}
+
+.inputs input{
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.buttons button{
+    border-radius: 15px;
+    width: 300px;
+    height: 50px;
+    font-size: 18px;
+}
+
+#button-login{
+    background-color: #1A80E4;
+    color: #ffffff;
+    text-decoration: solid;
+    transition: 400ms;
+    border-radius: 30px;
+}
+
+#button-login:hover {
+    box-shadow: 0px 0px 1px 1px var #1A80E1;
+    font-size: 20px;
+}
+
+#button-create {
+    background-color: #F0F2F5;
+    color: black;
+    transition: 400ms;
+    border-radius: 30px;
+}
+
+#button-create:hover {
+    box-shadow: 0px 0px 1px 1px;
+    font-size: 20px;
+}

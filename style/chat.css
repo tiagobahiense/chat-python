@@ -1,0 +1,119 @@
+/* Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q:before, q:after {
+    quotes: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Containers */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.container-head {
+    display: flex;
+    width: 100%;
+    height: 126px;
+    background: #ABD1FF6E;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.container-head img {
+    width: 60px;
+    height: 60px;
+}
+
+.container-head h1 {
+    font-size: 25px;
+}
+
+.container-chat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+}
+
+.container-chat textarea,
+.envio-mensagem textarea {
+    width: 50%;
+    border-radius: 20px;
+    padding: 20px;
+    border: none;
+    font-size: 12px;
+    margin: 5px;
+}
+
+#foto {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+#mensagem-chat1,
+#mensagem-chat2 {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+#mensagem-chat1 {
+    justify-content: end;
+}
+
+#mensagem-chat1 textarea {
+    background: #1A80E5;
+    color: #ffffff;
+}
+
+#mensagem-chat2 textarea {
+    background: #F0F2F4;
+}
+
+.envio-mensagem {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 20%;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .container-chat {
+        margin-bottom: 18%;
+        gap: 15px;
+    }
+
+    #mensagem-chat1, #mensagem-chat2 {
+        width: 100%;
+        justify-content: center;
+    }
+}
